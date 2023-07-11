@@ -1,0 +1,33 @@
+function quicksort(arr, low, high):
+    if low < high:
+        // Partition the array
+        pivot_index = partition(arr, low, high)
+        
+        // Recursively sort the left partition
+        quicksort(arr, low, pivot_index - 1)
+        
+        // Recursively sort the right partition
+        quicksort(arr, pivot_index + 1, high)
+
+function partition(arr, low, high):
+    // Select the pivot element (in this case, the last element)
+    pivot = arr[high]
+    
+    // Initialize the index of the smaller element
+    i = low - 1
+    
+    // Iterate through the array from low to high - 1
+    for j = low to high - 1:
+        // If the current element is smaller than or equal to the pivot
+        if arr[j] <= pivot:
+            // Increment the index of the smaller element
+            i = i + 1
+            
+            // Swap arr[i] and arr[j]
+            swap(arr[i], arr[j])
+    
+    // Swap the pivot element with the element at index i + 1
+    swap(arr[i + 1], arr[high])
+    
+    // Return the index of the pivot element after partitioning
+    return i + 1
